@@ -34,9 +34,16 @@ public class Snowflake {
      * Hint: a for loop over name.charAt(i). A char is a number: 'D' - 'A' is 3.
      */
     public static int nameSeed(String name) {
-        // Insert your code below
-
-        return 0;
+        int total = 0;
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
+            if (c >= 'A' && c <= 'Z') {
+                total += c - 'A' + 1;
+            } else if (c >= 'a' && c <= 'z') {
+                total += c - 'a' + 1;
+            }
+        }
+        return total;
     }
 
     /** COMPLETE THIS METHOD
@@ -55,6 +62,10 @@ public class Snowflake {
      * changing the pen color or width.
      */
     public static void drawArm(Turtle t, int size) {
+        int seed = nameSeed(DESIGNER);
+        int pairs = DesignCard.branchPairs(seed);
+        int angle = DesignCard.branchAngle(seed);
+        boolean crystal = DesignCard.isCrystal(seed);
         // Insert your code below
 
     }
